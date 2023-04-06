@@ -7,7 +7,7 @@ class Debut extends Phaser.Scene {
         this.load.image("Phaser_tuilesdejeu", "assets/photo.png");
         this.load.tilemapTiledJSON("Jardin", "assets/Ville.json");
         this.load.tilemapTiledJSON("playa", "assets/plage.json");
-        this.load.tilemapTiledJSON("carte", "assets/S.json");
+        this.load.tilemapTiledJSON("Grotte", "assets/Grotte.json");
 
         this.load.spritesheet('perso', 'assets/personne.png',
             { frameWidth: 120, frameHeight: 150 });
@@ -36,7 +36,7 @@ class Debut extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
         this.cursors = this.input.keyboard.createCursorKeys();
         this.physics.add.collider(this.player, calque_Ville);
-        this.physics.add.collider(this.player, calque_Change, this.switch, null, this);
+        this.physics.add.collider(this.player, calque_Change, this.switchPlage, null, this);
         this.physics.world.setBounds(0, 0, 1600, 1600);
         this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player);
@@ -89,7 +89,7 @@ class Debut extends Phaser.Scene {
         }
 
     }
-    switch() 
+    switchPlage() 
     {
         this.scene.start("class2");
     }

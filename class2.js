@@ -28,50 +28,65 @@ class class2 extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player);
 
+        this.anims.create({
+            key: 'de_dos',
+            frames: [ { key: 'perso', frame: 0 } ],
+            frameRate: 20
+        });
+        this.anims.create({
+            key: 'de_face',
+            frames: [ { key: 'perso', frame: 1 } ],
+            frameRate: 20
+        });
 
     }
     update() {
         if (this.cursors.left.isDown && this.cursors.down.isDown) {
             this.player.setVelocityX(-260); //alors vitesse négative en X
             this.player.setVelocityY(260);
+            this.player.anims.play('de_face', true);
         }
         else if (this.cursors.right.isDown && this.cursors.down.isDown) {
             this.player.setVelocityX(260); //alors vitesse négative en X
             this.player.setVelocityY(260);
+            this.player.anims.play('de_face', true);
         }
         else if (this.cursors.left.isDown && this.cursors.up.isDown) {
             this.player.setVelocityX(-260); //alors vitesse négative en X
             this.player.setVelocityY(-260);
+            this.player.anims.play('de_dos', true);
         }
         else if (this.cursors.right.isDown && this.cursors.up.isDown) {
             this.player.setVelocityX(260); //alors vitesse négative en X
             this.player.setVelocityY(-260);
+            this.player.anims.play('de_dos', true);
         }
 
         else if (this.cursors.left.isDown) { //si la touche gauche est appuyée
             this.player.setVelocityX(-260); //alors vitesse négative en X
             this.player.setVelocityY(0);
-            this.player.anims.play('left', true); //et animation => gauche
+            
         }
         else if (this.cursors.right.isDown) { //sinon si la touche droite est appuyée
             this.player.setVelocityX(260); //alors vitesse positive en X
             this.player.setVelocityY(0);
-            this.player.anims.play('right', true); //et animation => droite
+            
         }
         else if (this.cursors.up.isDown) { //sinon si la touche droite est appuyée
             this.player.setVelocityY(-260); //alors vitesse positive en X
             this.player.setVelocityX(0);
-            this.player.anims.play('right', true); //et animation => droite
+            this.player.anims.play('de_dos', true);
+            
         }
         else if (this.cursors.down.isDown) { //sinon si la touche droite est appuyée
             this.player.setVelocityY(260); //alors vitesse positive en X
             this.player.setVelocityX(0);
-            this.player.anims.play('right', true); //et animation => droite
+            this.player.anims.play('de_face', true);
         }
         else { // sinon
             this.player.setVelocityY(0);
             this.player.setVelocityX(0); //vitesse nulle
-            this.player.anims.play('turn'); //animation fait face caméra
+            
         }
     }
     switchVillage() 

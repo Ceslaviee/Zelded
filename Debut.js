@@ -41,7 +41,6 @@ class Debut extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player);
 
-        this.physics.add.collider(this.player, calque_Change, this.changement, null, this)
 
 
     }
@@ -90,7 +89,8 @@ class Debut extends Phaser.Scene {
         }
 
     }
-    switch() {
+    switch() 
+    {
         this.scene.start("class2");
     }
 };

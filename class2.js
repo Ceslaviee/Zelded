@@ -9,21 +9,21 @@ class class2 extends Phaser.Scene {
         this.tileset = this.carteDuNiveau.addTilesetImage("photo", "Phaser_tuilesdejeu");
         this.calque_Plage = this.carteDuNiveau.createLayer("Plage", this.tileset);
         this.calque_Chien = this.carteDuNiveau.createLayer("Chien", this.tileset);
-        this.calque_GrotteE = this.carteDuNiveau.createLayer("GrotteE", this.tileset);
-        this.calque_Herbeu = this.carteDuNiveau.createLayer("Herbeu", this.tileset);
+        this.calque_Volcan = this.carteDuNiveau.createLayer("Volcan", this.tileset);
+        this.calque_Vert = this.carteDuNiveau.createLayer("Vert", this.tileset);
         this.calque_Plage.setCollisionByProperty({ Dur: true })
 
 
         this.player = this.physics.add.sprite(30, 20, 'perso').setScale(1.3);
         this.player.setCollideWorldBounds(true);
-        this.calque_GrotteE.setCollisionByProperty({ Dur: true })
-        this.calque_Herbeu.setCollisionByProperty({ Dur: true })
+        this.calque_Volcan.setCollisionByProperty({ Dur: true })
+        this.calque_Vert.setCollisionByProperty({ Dur: true })
 
         this.cursors = this.input.keyboard.createCursorKeys();
         this.physics.add.collider(this.player, this.calque_Plage);
         this.physics.add.collider(this.player, this.calque_Chien);
-        this.physics.add.collider(this.player, this.calque_GrotteE, this.switchGrotte, null, this);
-        this.physics.add.collider(this.player, this.calque_Herbeu, this.switchHerbe, null, this);
+        this.physics.add.collider(this.player, this.calque_Volcan, this.switchGrotte, null, this);
+        this.physics.add.collider(this.player, this.calque_Vert, this.switchHerbe, null, this);
         this.physics.world.setBounds(0, 0, 1600, 1600);
         this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player);
@@ -80,7 +80,7 @@ class class2 extends Phaser.Scene {
     }
     switchGrotte() 
     {
-        this.scene.start("class5");
+        this.scene.start("class3");
     }
     switchHerbe() 
     {

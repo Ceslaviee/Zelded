@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="photo" tilewidth="32" tileheight="32" tilecount="80" columns="10">
- <image source="photo.png" width="342" height="286"/>
- <tile id="10">
+<tileset version="1.9" tiledversion="1.9.2" name="photo" tilewidth="32" tileheight="32" tilecount="2500" columns="50">
+ <image source="photo.png" width="1600" height="1600"/>
+ <tile id="50">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="14">
+ <tile id="54">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="30">
+ <tile id="150">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="31">
+ <tile id="151">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="40">
+ <tile id="200">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="42">
+ <tile id="202">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="43">
+ <tile id="203">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="52">
+ <tile id="252">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>
  </tile>
- <tile id="53">
+ <tile id="253">
   <properties>
    <property name="Dur" type="bool" value="true"/>
   </properties>

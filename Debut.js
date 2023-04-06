@@ -18,11 +18,11 @@ class Debut extends Phaser.Scene {
             "photo",
             "Phaser_tuilesdejeu"
         );
-        const calque_Ville = this.carteDuNiveau.createLayer(
-            "Ville",
+        const calque_Village = this.carteDuNiveau.createLayer(
+            "Village",
             this.tileset
         );
-        calque_Ville.setCollisionByProperty({ Dur: true })
+        calque_Village.setCollisionByProperty({ Dur: true })
 
         const calque_Change = this.carteDuNiveau.createLayer(
             "Change",
@@ -35,7 +35,7 @@ class Debut extends Phaser.Scene {
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.physics.add.collider(this.player, calque_Ville);
+        this.physics.add.collider(this.player, calque_Village);
         this.physics.add.collider(this.player, calque_Change, this.switchPlage, null, this);
         this.physics.world.setBounds(0, 0, 1600, 1600);
         this.cameras.main.setBounds(0, 0, 1600, 1600);

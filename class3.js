@@ -19,7 +19,7 @@ class class3 extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
 
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.physics.add.collider(this.player, calque_S);
+        this.physics.add.collider(this.player, this.calque_Sol);
         this.physics.world.setBounds(0, 0, 1600, 1600);
         this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player);

@@ -1,24 +1,23 @@
-class class3 extends Phaser.Scene {
+class class4 extends Phaser.Scene {
     constructor() {
-        super("class3");
+        super("class4");
     }
-    preload() {
+    preload() { }
 
-     }
     create() {
-        this.carteDuNiveau = this.add.tilemap("Grotte");
-        this.tileset = this.carteDuNiveau.addTilesetImage("photo","Phaser_tuilesdejeu");
-        this.calque_Sol = this.carteDuNiveau.createLayer("Sol",this.tileset);
-        this.calque_Murs = this.carteDuNiveau.createLayer("Murs",this.tileset);
-        this.calque_EntreeJaune = this.carteDuNiveau.createLayer("EntreeJaune",this.tileset);
-        this.calque_EntreeVerte = this.carteDuNiveau.createLayer("EntreeVerte",this.tileset);
+        this.carteDuNiveau = this.add.tilemap("Herbage");
+        this.tileset = this.carteDuNiveau.addTilesetImage("photo", "Phaser_tuilesdejeu");
+        this.calque_herbes = this.carteDuNiveau.createLayer("herbes", this.tileset);
+        this.calque_Ensemble = this.carteDuNiveau.createLayer("Ensemble", this.tileset);
+        this.calque_Ensemble.setCollisionByProperty({ Dur: true })
 
 
-        this.player = this.physics.add.sprite(100, 200, 'perso').setScale(1.3);
+        this.player = this.physics.add.sprite(1344, 1458, 'perso').setScale(1.3);
         this.player.setCollideWorldBounds(true);
 
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.physics.add.collider(this.player, this.calque_Sol);
+        this.physics.add.collider(this.player, this.calque_herbes);
+        this.physics.add.collider(this.player, this.calque_Ensemble);
         this.physics.world.setBounds(0, 0, 1600, 1600);
         this.cameras.main.setBounds(0, 0, 1600, 1600);
         this.cameras.main.startFollow(this.player);
@@ -68,7 +67,5 @@ class class3 extends Phaser.Scene {
             this.player.setVelocityX(0); //vitesse nulle
             this.player.anims.play('turn'); //animation fait face caméra
         }
-
-
     }
 };

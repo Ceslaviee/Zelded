@@ -8,6 +8,7 @@ class Debut extends Phaser.Scene {
         this.load.tilemapTiledJSON("Jardin", "assets/Ville.json");
         this.load.tilemapTiledJSON("playa", "assets/plage.json");
         this.load.tilemapTiledJSON("Grotte", "assets/Grotte.json");
+        this.load.tilemapTiledJSON("Herbage", "assets/Herbage.json")
 
         this.load.spritesheet('perso', 'assets/personne.png',
             { frameWidth: 120, frameHeight: 150 });

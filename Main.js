@@ -19,14 +19,6 @@ class Main extends Phaser.Scene {
         console.log("Launch Game");
         this.scene.start('Debut', {
             porteMonnaie : 0,
-            statue : 0,
-            unlock_Sword : false,
-            unlock_Bow : false,
-            unlock_Tear : false,
-            unlock_Key : false,
-            health : 498,
-            spawnX : 1952,
-            spawnY : 2316,
         });
     }
 }

@@ -2,6 +2,9 @@ class class3 extends Phaser.Scene {
     constructor() {
         super("class3");
     }
+    init(data){
+        this.entree = data.entree;
+    }
     preload() {
 
      }
@@ -10,11 +13,20 @@ class class3 extends Phaser.Scene {
         this.tileset = this.carteDuNiveau.addTilesetImage("photo","Phaser_tuilesdejeu");
         this.calque_Sol = this.carteDuNiveau.createLayer("Sol",this.tileset);
         this.calque_Murs = this.carteDuNiveau.createLayer("Murs",this.tileset);
-        this.calque_EntreeJaune = this.carteDuNiveau.createLayer("EntreeJaune",this.tileset);
-        this.calque_EntreeVerte = this.carteDuNiveau.createLayer("EntreeVerte",this.tileset);
+        this.calque_Jaune = this.carteDuNiveau.createLayer("Jaune",this.tileset);
+        this.calque_Verte = this.carteDuNiveau.createLayer("Verte",this.tileset);
+        this.calque_Murs.setCollisionByProperty({ Dur: true })
+        this.calque_Sol.setCollisionByProperty({ Dur: true})
 
-
-        this.player = this.physics.add.sprite(100, 200, 'perso').setScale(1.3);
+        if(this.entree==1){
+            var spawnX = 1438;
+            var spawnY = 1534;
+        }
+        else{
+            var spawnX = 800;
+            var spawnY = 1536;
+        }
+        this.player = this.physics.add.sprite(spawnX, spawnY, 'perso').setScale(1.3);
         this.player.setCollideWorldBounds(true);
 
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -29,44 +41,45 @@ class class3 extends Phaser.Scene {
         if (this.cursors.left.isDown && this.cursors.down.isDown) {
             this.player.setVelocityX(-260); //alors vitesse négative en X
             this.player.setVelocityY(260);
+            this.player.anims.play('de_face', true);
         }
         else if (this.cursors.right.isDown && this.cursors.down.isDown) {
             this.player.setVelocityX(260); //alors vitesse négative en X
             this.player.setVelocityY(260);
+            this.player.anims.play('de_face', true);
         }
         else if (this.cursors.left.isDown && this.cursors.up.isDown) {
             this.player.setVelocityX(-260); //alors vitesse négative en X
             this.player.setVelocityY(-260);
+            this.player.anims.play('de_dos', true);
         }
         else if (this.cursors.right.isDown && this.cursors.up.isDown) {
             this.player.setVelocityX(260); //alors vitesse négative en X
             this.player.setVelocityY(-260);
+            this.player.anims.play('de_dos', true);
         }
 
         else if (this.cursors.left.isDown) { //si la touche gauche est appuyée
             this.player.setVelocityX(-260); //alors vitesse négative en X
             this.player.setVelocityY(0);
-            this.player.anims.play('left', true); //et animation => gauche
         }
         else if (this.cursors.right.isDown) { //sinon si la touche droite est appuyée
             this.player.setVelocityX(260); //alors vitesse positive en X
             this.player.setVelocityY(0);
-            this.player.anims.play('right', true); //et animation => droite
         }
         else if (this.cursors.up.isDown) { //sinon si la touche droite est appuyée
             this.player.setVelocityY(-260); //alors vitesse positive en X
             this.player.setVelocityX(0);
-            this.player.anims.play('right', true); //et animation => droite
+            this.player.anims.play('de_dos', true); //et animation => droite
         }
         else if (this.cursors.down.isDown) { //sinon si la touche droite est appuyée
             this.player.setVelocityY(260); //alors vitesse positive en X
             this.player.setVelocityX(0);
-            this.player.anims.play('right', true); //et animation => droite
+            this.player.anims.play('de_face', true); //et animation => droite
         }
         else { // sinon
             this.player.setVelocityY(0);
-            this.player.setVelocityX(0); //vitesse nulle
-            this.player.anims.play('turn'); //animation fait face caméra
+            this.player.setVelocityX(0);
         }
 
 

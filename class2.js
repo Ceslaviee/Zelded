@@ -95,7 +95,7 @@ class class2 extends Phaser.Scene {
     }
     switchGrotte() 
     {
-        this.scene.start("class3");
+        this.scene.start("class3", { entree: 1 });
     }
     switchHerbe() 
     {

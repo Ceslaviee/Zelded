@@ -15,20 +15,11 @@ class Debut extends Phaser.Scene {
     }
     create() {
         this.carteDuNiveau = this.add.tilemap("Jardin");
-        this.tileset = this.carteDuNiveau.addTilesetImage(
-            "photo",
-            "Phaser_tuilesdejeu"
-        );
-        const calque_Village = this.carteDuNiveau.createLayer(
-            "Village",
-            this.tileset
-        );
+        this.tileset = this.carteDuNiveau.addTilesetImage("photo","Phaser_tuilesdejeu");
+        const calque_Village = this.carteDuNiveau.createLayer("Village",this.tileset);
         calque_Village.setCollisionByProperty({ Dur: true })
 
-        const calque_Change = this.carteDuNiveau.createLayer(
-            "Change",
-            this.tileset
-        );
+        const calque_Change = this.carteDuNiveau.createLayer("Change",this.tileset);
         calque_Change.setCollisionByProperty({ Dur: true })
         calque_Change.setVisible(false)
 
